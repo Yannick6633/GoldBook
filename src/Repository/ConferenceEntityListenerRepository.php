@@ -2,35 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Conference;
+use App\Entity\ConferenceEntityListener;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Conference|null find($id, $lockMode = null, $lockVersion = null)
- * @method Conference|null findOneBy(array $criteria, array $orderBy = null)
- * @method Conference[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method ConferenceEntityListener|null find($id, $lockMode = null, $lockVersion = null)
+ * @method ConferenceEntityListener|null findOneBy(array $criteria, array $orderBy = null)
+ * @method ConferenceEntityListener[]    findAll()
+ * @method ConferenceEntityListener[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ConferenceRepository extends ServiceEntityRepository
+class ConferenceEntityListenerRepository extends ServiceEntityRepository
 {
-    /**
-     * ConferenceRepository constructor.
-     * @param ManagerRegistry $registry
-     */
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Conference::class);
+        parent::__construct($registry, ConferenceEntityListener::class);
     }
 
-    /**
-     * @return Conference[]|array
-     */
-    public function findAll()
-    {
-        return $this->findBy([], ['year' => 'ASC', 'city' => 'ASC']);
-    }
     // /**
-    //  * @return Conference[] Returns an array of Conference objects
+    //  * @return ConferenceEntityListener[] Returns an array of ConferenceEntityListener objects
     //  */
     /*
     public function findByExampleField($value)
@@ -47,7 +37,7 @@ class ConferenceRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Conference
+    public function findOneBySomeField($value): ?ConferenceEntityListener
     {
         return $this->createQueryBuilder('c')
             ->andWhere('c.exampleField = :val')
